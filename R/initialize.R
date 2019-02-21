@@ -29,7 +29,7 @@ sd_initialize <- function(self, private, path, loadTimeout, checkNames,
 
   "!DEBUG create new phantomjs session"
   self$logEvent("Creating new phantomjs session")
-  private$web <- Session$new(port = private$phantomPort)
+  private$web <- Session$new(host = Sys.info()[["nodename"]], port = private$phantomPort)
 
   ## Set implicit timeout to zero. According to the standard it should
   ## be zero, but phantomjs uses about 200 ms
